@@ -1,0 +1,19 @@
+<div class="margin-high"><%= image_tag @photo.post %></div>
+
+<ul>
+  <% @tags.each do |tag| %>
+    <li><%= tag.user.email %></li>
+  <% end %>
+</ul>
+
+
+<h5>Add a tag to this photo</h5>
+
+<%= form_for @tag do |f| %>
+  <div class="form-group">
+    <%= f.hidden_field :photo_id, value: @photo.id %>
+    <%= f.label :user_id, "Select a user" %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
+  </div>
+    <%= f.submit "Tag user!", class: "btn btn-success" %>
+<% end %>

@@ -21,3 +21,15 @@
   background-color: ;
   float: right;
 }
+
+.margin-high {
+  margin-top: 5px;
+}
+
+.saturate {
+  -webkit-filter: saturate(1);
+}
+
+.saturate:hover {
+  -webkit-filter: saturate(3);
+}
