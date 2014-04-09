@@ -1,9 +1,11 @@
 class TagsController < ApplicationController
 
   def create
+    @photo = Photo.find(params[:tag][:photo_id])
+    @tags = @photo.tags
     @tag = Tag.new(tag_params)
     if @tag.save
-      redirect_to root_url, notice: "Tag successful!"
+      redirect_to photo_path(@photo.id), notice: "Tag successful!"
     else
       flash.alert = "Tag unsuccessful."
       render 'index'

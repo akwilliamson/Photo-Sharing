@@ -4,7 +4,7 @@
 
 <% @photos.each do |photo| %>
 <div class="margin-high">
-  <%= link_to image_tag(photo.post.url), photo_path(photo.id), class: "margin-high saturate gallery" %></div><br />
+  <%= link_to image_tag(photo.post.url(:small)), photo_path(photo.id), class: "margin-high saturate gallery" %></div><br />
 <% end %>
 
 <%= form_for @photo, url: photos_path, html: { :multipart => true }, class: "form-group"  do |f| %>

@@ -11,25 +11,3 @@
  *= require_self
  *= require_tree .
  */
-
-#cont {
-  margin-left: 10px;
-  margin-top: 50px;
-}
-
-#user_header {
-  background-color: ;
-  float: right;
-}
-
-.margin-high {
-  margin-top: 5px;
-}
-
-.saturate {
-  -webkit-filter: saturate(1);
-}
-
-.saturate:hover {
-  -webkit-filter: saturate(3);
-}
