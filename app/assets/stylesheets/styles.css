@@ -18,3 +18,7 @@
 .saturate:hover {
   -webkit-filter: saturate(3);
 }
+
+a {
+  color: white;
+}

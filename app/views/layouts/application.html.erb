@@ -14,7 +14,7 @@
   <% if current_user %>
     <%= link_to "Log Out", session_path("current"), method: "delete", class: "navbar-text pull-right" %>
     <div class="navbar-text pull-right">
-      Logged in as <%= current_user.email %>
+      Logged in as &nbsp; <%= link_to current_user.name, user_path(current_user) %>
     </div>
   <% else %>
     <%= link_to "Sign Up", new_user_path, class: "navbar-text pull-right" %>
