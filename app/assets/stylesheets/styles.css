@@ -19,6 +19,10 @@
   -webkit-filter: saturate(3);
 }
 
-a {
+.gallery {
+  float: left;
+  padding: 10px;
+}
+#white {
   color: white;
 }

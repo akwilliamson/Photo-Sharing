@@ -1,6 +1,6 @@
-<h2>Photo Feed</h2>
+<h2>Photo Feed</h2><hr>
 
 <% @photos.each do |photo| %>
 <div class="margin-high">
-  <%= link_to image_tag(photo.post.url(:small)), photo_path(photo.id), class: "margin-high saturate gallery" %></div><br />
+  <%= link_to image_tag(photo.post.url(:small)), photo_path(photo.id), class: "margin-high saturate gallery" %></div>
 <% end %>
