@@ -3,26 +3,27 @@
     <%= form_for @user, url: user_path, html: { :multipart => true }, class: "form-group"  do |f| %>
       <%= f.label "Profile Picture" %>
       <%= f.file_field :avatar %>
-      <%= f.submit "Add Profile Pic!", class: "btn btn-success margin-high" %>
+      <%= f.submit "Add Profile Pic!", class: "btn btn-success btn-sm margin-high" %>
     <% end %>
   <% else %>
   <%= image_tag(@user.avatar.url(:small)) %>
     <%= form_for @user, url: user_path, html: { :multipart => true }, class: "form-group"  do |f| %>
-    <% if @user.errors.any? %>
-    <div class = "error_messages">
-    <h2>Form is invalid</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-    <% end %>
     <%= f.label "Profile Picture" %>
     <%= f.file_field :avatar %>
-    <%= f.submit "Update Avatar", class: "btn btn-warning margin-high" %>
+    <%= f.submit "Update Avatar", class: "btn btn-warning btn-sm margin-high" %>
     <% end %>
-  <%= link_to "Edit Avatar", user_path(@user) %>
+<% end %>
+<br><br>
+
+<%= form_for @photo, url: photos_path, html: { :multipart => true }, class: "form-group"  do |f| %>
+  <%= f.label :post, "Add photo" %>
+  <%= f.file_field :post %>
+  <%= f.submit "Submit", class: "btn btn-success btn-sm margin-high" %>
 <% end %>
 
+<h3>Tagged Photos</h3><hr>
 
 
+<% @user.tags.each do |tag| %>
+  <%= image_tag(tag.photo.post.url(:medium)) %>
+<% end %>

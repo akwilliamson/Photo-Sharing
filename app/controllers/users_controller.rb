@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    @photo = Photo.new
     @photos = Photo.all
   end
 
   def show
     @user = User.find(session[:user_id])
+    @photo = Photo.new
   end
 
   def new
@@ -15,11 +15,10 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(session[:user_id])
-    if @user.update(users_params)
-      redirect_to user_path
-    else
-      render 'show'
+    if params[:user]
+      @user.update(users_params)
     end
+      redirect_to user_path
   end
 
   def create

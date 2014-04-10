@@ -1,8 +1,8 @@
 <div class="margin-high"><%= image_tag @photo.post %></div>
 
-<ul>
+<ul> Tagged in this photo:
   <% @tags.each do |tag| %>
-    <li><%= tag.user.email %></li>
+    <li><%= tag.user.name %></li>
   <% end %>
 </ul>
 
@@ -13,7 +13,7 @@
   <div class="form-group">
     <%= f.hidden_field :photo_id, value: @photo.id %>
     <%= f.label :user_id, "Select a user" %>
-    <%= f.collection_select :user_id, User.all, :id, :email %>
+    <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
     <%= f.submit "Tag user!", class: "btn btn-success" %>
 <% end %>
