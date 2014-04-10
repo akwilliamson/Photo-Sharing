@@ -15,8 +15,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(session[:user_id])
-    @user.update(users_params)
-    redirect_to user_path
+    if @user.update(users_params)
+      redirect_to user_path
+    else
+      render 'show'
+    end
   end
 
   def create
