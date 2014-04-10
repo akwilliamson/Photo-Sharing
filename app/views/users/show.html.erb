@@ -27,3 +27,10 @@
 <% @user.tags.each do |tag| %>
   <%= link_to image_tag(tag.photo.post.url(:medium)), photo_path(tag.photo.id), class: "saturate gallery" %>
 <% end %>
+<br><br><br><br><br><br><br><br><br>
+
+<h3>Favorite Photos</h3><hr>
+
+<% @user.favorites.each do |favorite| %>
+  <%= link_to image_tag(favorite.photo.post.url(:medium)), photo_path(favorite.photo.id), class: "saturate gallery" %>
+<% end %>

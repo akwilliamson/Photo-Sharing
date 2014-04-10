@@ -6,6 +6,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @tags = @photo.tags
     @tag = Tag.new
+    @favorite = Favorite.new
   end
 
   def create

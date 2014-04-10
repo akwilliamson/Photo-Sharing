@@ -4,4 +4,5 @@ PhotoSharing::Application.routes.draw do
   resources :sessions
   resources :photos
   resources :tags
+  resources :favorites
 end

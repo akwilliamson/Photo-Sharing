@@ -1,10 +1,20 @@
 <div class="margin-high"><%= image_tag @photo.post %></div>
+<link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css" rel="stylesheet">
 
 <ul> Tagged in this photo:
   <% @tags.each do |tag| %>
-    <li><%= link_to tag.user.name, user_path %></li>
+    <li><%= link_to tag.user.name, user_path(tag.user) %></li>
   <% end %>
 </ul>
+
+<%= form_for @favorite do |f| %>
+  <div class="form-group">
+    <%= f.hidden_field :photo_id, value: @photo.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <button name="star" type="submit" id="yellow" class="btn glyphicon glyphicon-star btn-sm"></button> Click to Favorite!
+  </div>
+<% end %>
+
 
 <h5>Add a tag to this photo</h5>
 
@@ -15,10 +25,4 @@
     <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
     <%= f.submit "Tag user!", class: "btn btn-success btn-sm" %>
-<% end %>
-
-<%= form_for @favorite, url: photos_path, html: { :multipart => true }, class: "form-group"  do |f| %>
-  <%= f.label :post, "Add photo" %>
-  <%= f.file_field :post %>
-  <%= f.submit "Submit", class: "btn btn-success btn-sm margin-high" %>
 <% end %>
