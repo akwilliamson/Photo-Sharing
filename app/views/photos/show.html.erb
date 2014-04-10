@@ -6,7 +6,6 @@
   <% end %>
 </ul>
 
-
 <h5>Add a tag to this photo</h5>
 
 <%= form_for @tag do |f| %>
@@ -15,5 +14,11 @@
     <%= f.label :user_id, "Select a user" %>
     <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
-    <%= f.submit "Tag user!", class: "btn btn-success" %>
+    <%= f.submit "Tag user!", class: "btn btn-success btn-sm" %>
+<% end %>
+
+<%= form_for @favorite, url: photos_path, html: { :multipart => true }, class: "form-group"  do |f| %>
+  <%= f.label :post, "Add photo" %>
+  <%= f.file_field :post %>
+  <%= f.submit "Submit", class: "btn btn-success btn-sm margin-high" %>
 <% end %>

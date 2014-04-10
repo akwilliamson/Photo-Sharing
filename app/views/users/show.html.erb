@@ -25,5 +25,5 @@
 
 
 <% @user.tags.each do |tag| %>
-  <%= image_tag(tag.photo.post.url(:medium)) %>
+  <%= link_to image_tag(tag.photo.post.url(:medium)), photo_path(tag.photo.id), class: "saturate gallery" %>
 <% end %>
