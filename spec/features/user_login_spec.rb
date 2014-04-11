@@ -35,7 +35,6 @@ describe User do
       add_photo
       click_link "Home"
       find(:xpath, "//a/img[@alt='Opposum']/..").click
-      save_and_open_page
       click_button "yellow"
       page.should have_content "Favorited!"
     end
