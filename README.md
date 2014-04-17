@@ -1,7 +1,7 @@
 Photo Sharing
 ===
 
-An app that lets users upload their photos to share, and allows them to tag and favorite photos as well.
+An app that lets users upload their photos to share, and allows them to tag and favorite photos.
 
 **DONE** Lets people create accounts.
 
